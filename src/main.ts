@@ -12,7 +12,6 @@ async function run(): Promise<void> {
 
     if (tag && version.isSemVer(tag)) {
       const changelog = await git.getChangesIntroducedByTag(tag)
-      
       releaseUrl = await github.createReleaseDraft(tag, token, changelog)
     }
 
